@@ -1,7 +1,8 @@
 class Magnet {
   static zhReg = /中文|中字|字幕|\[[a-z]?hdc[a-z]?\]|[-_\s]+(uc|c|ch|cu|zh)(?![a-z])/i;
   static crackReg = /无码|無碼|流出|破解|解密版|uncensored|破[一-鿆]版|[-_\s]+(cu|u|uc)(?![a-z])/i;
-
+  static nomarkReg = /hhd800.com@(?![a-z])/i;
+  
   static useTransByte() {
     const rules = [
       { unit: /byte/i, trans: (size) => size },
@@ -31,6 +32,7 @@ class Magnet {
   }
 
   static magnetSort = (a, b) => {
+    if (a.nomark !== b.nomark) return a.nomark ? -1 : 1;
     if (a.zh !== b.zh) return a.zh ? -1 : 1;
     if (a.crack !== b.crack) return a.crack ? -1 : 1;
     return parseFloat(b.size) - parseFloat(a.size);
