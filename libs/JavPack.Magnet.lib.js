@@ -1,7 +1,7 @@
 class Magnet {
   static zhReg = /中文|中字|字幕|\[[a-z]?hdc[a-z]?\]|[-_\s]+(uc|c|ch|cu|zh)(?![a-z])/i;
   static crackReg = /无码|無碼|流出|破解|解密版|uncensored|破[一-鿆]版|[-_\s]+(cu|u|uc)(?![a-z])/i;
-  static nomarkReg = /hhd800.com@(?![a-z])/i;
+  static nomarkReg = /hdd800.com@/i;
   
   static useTransByte() {
     const rules = [
